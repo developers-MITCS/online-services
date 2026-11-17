@@ -1,0 +1,76 @@
+Table departments {
+  id int [pk, increment]
+  department_code varchar [unique]
+  department_name varchar
+  status varchar // active, inactive
+  created_at timestamp
+}
+
+Table employees {
+  id int [pk, increment]
+  employee_no varchar [unique]
+  department_id int
+
+  first_name varchar
+  last_name varchar
+  email varchar
+  phone varchar
+
+  status varchar // active, inactive
+  created_at timestamp
+}
+Table users {
+  id int [pk, increment]
+  username varchar [unique, not null]
+  email varchar [unique, not null]
+  password varchar [not null]
+  firstname varchar
+  lastname varchar
+  middlename varchar
+  suffix varchar
+  role_id int
+  created_at timestamp
+  updated_at timestamp
+}
+
+
+Table roles {
+  id int [pk, increment]
+  name varchar [unique, not null] // admin, cashier, manager
+
+  created_at timestamp
+}
+
+
+Table api_logs {
+
+  id int [pk, increment]
+
+  method varchar
+  url varchar
+
+  status_code int
+
+  ip varchar
+  user_agent text
+
+  user_id int [null]
+
+  duration_ms int
+
+  created_at timestamp
+
+}
+
+
+
+
+// Relationships
+
+Ref: employees.id < api_logs.user_id
+
+Ref: users.role_id > roles.id
+
+Ref: employees.department_id > departments.id
+
+

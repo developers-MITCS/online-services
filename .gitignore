@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment files
+.env.development
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+frontend/dist/
+frontend/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# React/Vite cache
+.vite/
+.cache/
+
+# Coverage (testing)
+coverage/
+
+# Optional: lock files (ONLY if team agrees)
+# package-lock.json
+# yarn.lock
